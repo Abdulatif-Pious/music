@@ -42,7 +42,7 @@ const AroundYou = () => {
             data={data}
             i={i}
           />
-        ))};
+        ))}
       </div>
     </>
   );
