@@ -32,7 +32,7 @@
 }
 /*  scrollbar for chrome, safari, opera*/
 .scrollbar::-webkit-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
@@ -50,7 +50,7 @@
 
 /* scrollbar for edge/IE */
 .hide-scrollbar::ms-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 
 .scrollbar::-ms-scrollbar-thumb {
@@ -68,7 +68,7 @@
 
 /* scrollbar for firefox */
 .hide-scrollbar::moz-scrollbar {
-  width: 20px;
+  width: 10px;
 }
 
 .scrollbar::-moz-scrollbar-thumb {
