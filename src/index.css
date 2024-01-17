@@ -30,13 +30,56 @@
 .smooth-transition {
   transition: all 0.3s ease-in-out;
 }
-/* hide scrollbar for chromw, safari, opera*/
-.hide-scrollbar::-webkit--scrolbar {
-  display: none;
+/*  scrollbar for chrome, safari, opera*/
+.scrollbar::-webkit-scrollbar {
+  width: 20px;
 }
 
-/* hide scrollbar for edge/IE and firefox */
-.hide-scrollbar {
-  -ms-overflow-style : none; /*ie and Edge*/
-  scrollbar-width : none; /*Firefox*/
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #bcbcbc;
+  border-radius: 30px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #555;
+}
+
+/* scrollbar for edge/IE */
+.hide-scrollbar::ms-scrollbar {
+  width: 20px;
+}
+
+.scrollbar::-ms-scrollbar-thumb {
+  background-color: #bcbcbc;
+  border-radius: 30px;
+}
+
+.scrollbar::-ms-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.scrollbar::-ms-scrollbar-thumb:active {
+  background-color: #555;
+}
+
+/* scrollbar for firefox */
+.hide-scrollbar::moz-scrollbar {
+  width: 20px;
+}
+
+.scrollbar::-moz-scrollbar-thumb {
+  background-color: #bcbcbc;
+  border-radius: 30px;
+}
+
+.scrollbar::-moz-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.scrollbar::-moz-scrollbar-thumb:active {
+  background-color: #555;
 }

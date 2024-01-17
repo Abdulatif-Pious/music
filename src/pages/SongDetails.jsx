@@ -8,11 +8,11 @@ import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../redux/service
 
 const SongDetails = () => {
   const dispatch = useDispatch();
-  const { songid, id: artistId } = useParams();
+  const { songId, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const { data, isFetching: isFetchinRelatedSongs, error } = useGetSongRelatedQuery({ songid });
-  const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songid });
+  const { data, isFetching: isFetchinRelatedSongs, error } = useGetSongRelatedQuery({ songId });
+  const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songId });
 
   if (isFetchingSongDetails && isFetchinRelatedSongs) return <Loader title="Searching song details..." />;
 
@@ -27,23 +27,24 @@ const SongDetails = () => {
     dispatch(playPause(true));
   };
 
+  console.log("[SONG_DETAIL]", data);
   return (
-    <div className="flex flex-col">
+    <>
       <DetailsHeader
         artistId={artistId}
         songData={songData}
       />
 
-      <div className="mb-10 flex flex-col items-center">
-        <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
+      <div className="my-10 flex flex-col items-center">
+        <h2 className="font-semibold text-white text-lg">Lyrics:</h2>
 
         <div className="mt-5">
-          {songData?.sections[1].type === 'LYRICS'
-            ? songData?.sections[1]?.text.map((line, i) => (
-              <p key={`lyrics-${line}-${i}`} className="text-white text-base my-1">{line}</p>
+          {songData?.sections[1].type === 'LYRICS' ? 
+            songData?.sections[1]?.text.map((line, i) => (
+              <p key={`lyrics-${line}-${i}`} className="text-white my-1">{line}</p>
             ))
             : (
-              <p className="text-white text-base my-1">Sorry, No lyrics found!</p>
+              <p className="text-white  my-1">No lyrics found!</p>
             )}
         </div>
       </div>
@@ -57,7 +58,7 @@ const SongDetails = () => {
         handlePlayClick={handlePlayClick}
       />
 
-    </div>
+    </>
   );
 };
 
