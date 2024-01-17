@@ -27,7 +27,6 @@ const SongDetails = () => {
     dispatch(playPause(true));
   };
 
-  console.log("[SONG_DETAIL]", data);
   return (
     <>
       <DetailsHeader

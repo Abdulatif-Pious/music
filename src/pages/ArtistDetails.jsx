@@ -14,7 +14,6 @@ const ArtistDetails = () => {
 
   if (error) return <Error />;
 
-  console.log("[ARTIST_DETAIL]",artistData)
   return (
     <>
       <DetailsHeader
